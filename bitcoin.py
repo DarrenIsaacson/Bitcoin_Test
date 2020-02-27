@@ -6,7 +6,8 @@ import requests
 def main():
 
     amount = get_amount()
-    print(convert(amount))
+    total = convert(amount)
+    display(total)
 
 
 def get_amount():
@@ -37,9 +38,9 @@ def get_json(url):
 def get_rate(data):
     return data['bpi']['USD']['rate_float']
 
-def display(rate):
+def display(total):
 
-    print(f'The rate of bitcoin is currently ${rate}')
+    print(f'The rate of bitcoin is currently ${total}')
 
 if __name__ == '__main__':
     main()

@@ -1,6 +1,6 @@
 import unittest
 from unittest import TestCase
-from unittest.mock import patch
+from unittest.mock import patch, call
 
 import bitcoin
 
@@ -14,6 +14,16 @@ class TestBitCoin(TestCase):
         converted = bitcoin.convert(10)
 
         self.assertEqual(5550 , converted)
+
+
+    @patch('builtins.print')
+    def test_display_total(self, mock_print):
+        bitcoin.display(123)
+        mock_print.assert_called_once_with('The rate of bitcoin is currently $123')
+
+
+
+
 
 if __name__ == '__main__':
     unittest.main()
